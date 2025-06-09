@@ -52,8 +52,8 @@ Certifique-se de ter os seguintes componentes instalados:
 
 ```bash
 # Clone o repositório
-git clone [URL_DO_REPOSITORIO]
-cd [NOME_DO_PROJETO]
+git clone [https://github.com/ThiagoCarrillo/globalsolution-dotnet]
+cd [Sprint-C#]
 
 # Restaure as dependências
 dotnet restore
@@ -164,8 +164,8 @@ dotnet test --filter Category=Unit
 
 ```json
 {
-  "nome": "João Santos",
-  "email": "joao.santos@exemplo.com",
+  "nome": "teste",
+  "email": "testes@exemplo.com",
   "perfil": "administrador"
 }
 ```
