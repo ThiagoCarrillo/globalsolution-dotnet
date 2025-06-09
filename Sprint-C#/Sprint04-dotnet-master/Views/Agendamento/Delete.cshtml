@@ -1,0 +1,51 @@
+﻿@model Sessions_app.Models.Agendamento;
+
+@{
+    ViewData["Title"] = "Excluir Agendamento";
+}
+
+<div class="container py-5">
+    <div class="hero-index bg-white rounded-3 shadow-sm p-4 mb-5">
+        <h1 class="display-5 fw-bold text-dark">
+            <i class="fas fa-calendar-times me-3 text-danger"></i>@ViewData["Title"]
+        </h1>
+    </div>
+
+    <div class="alert alert-danger">
+        <h4>Tem certeza que deseja excluir este agendamento?</h4>
+        <p class="mb-0">Esta ação é irreversível e removerá permanentemente o registro.</p>
+    </div>
+
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+            <dl class="row g-4">
+                <div class="col-md-6">
+                    <dt class="text-primary">Paciente</dt>
+                    <dd>@Model.Paciente?.Nome</dd>
+                </div>
+                <div class="col-md-6">
+                    <dt class="text-primary">Médico</dt>
+                    <dd>@Model.Medico?.Nome</dd>
+                </div>
+                <div class="col-md-6">
+                    <dt class="text-primary">Data/Hora</dt>
+                    <dd>@Model.DataAgendamento.ToString("dd/MM/yyyy HH:mm")</dd>
+                </div>
+                <div class="col-12">
+                    <dt class="text-primary">Descrição</dt>
+                    <dd>@Model.Descricao</dd>
+                </div>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="IdAgendamento" />
+                <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-trash-alt me-2"></i>Confirmar Exclusão
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left me-2"></i>Voltar
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@model Sessions_app.Models.Agendamento;
+
+@{
+    ViewData["Title"] = "Detalhes do Agendamento";
+}
+
+<div class="container py-5">
+    <div class="hero-index bg-white rounded-3 shadow-sm p-4 mb-5">
+        <h1 class="display-5 fw-bold text-dark">
+            <i class="fas fa-calendar-check me-3 text-primary"></i>@ViewData["Title"]
+        </h1>
+    </div>
+
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+            <dl class="row g-4">
+                <div class="col-md-6">
+                    <dt class="text-primary">Paciente</dt>
+                    <dd>@Model.Paciente?.Nome</dd>
+                </div>
+                <div class="col-md-6">
+                    <dt class="text-primary">Médico</dt>
+                    <dd>@Model.Medico?.Nome</dd>
+                </div>
+                <div class="col-md-6">
+                    <dt class="text-primary">Data/Hora</dt>
+                    <dd>@Model.DataAgendamento.ToString("dd/MM/yyyy HH:mm")</dd>
+                </div>
+                <div class="col-12">
+                    <dt class="text-primary">Descrição</dt>
+                    <dd>@Model.Descricao</dd>
+                </div>
+            </dl>
+
+            <div class="mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.IdAgendamento"
+                   class="btn btn-warning">
+                    <i class="fas fa-edit me-2"></i>Editar
+                </a>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left me-2"></i>Voltar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Política de Privacidade";
+}
+
+<div class="container py-5">
+    <!-- Header Section -->
+    <div class="hero-privacy text-center mb-5">
+        <div class="bg-primary-gradient rounded-3 p-5 shadow">
+            <h1 class="display-4 fw-bold text-white mb-3">
+                <i class="fas fa-shield-alt me-3"></i>@ViewData["Title"]
+            </h1>
+            <p class="lead text-light">Compromisso com a segurança de dados</p>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="privacy-content bg-white rounded-3 shadow-sm p-4 p-lg-5">
+        <div class="mb-5">
+            <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-database fa-2x text-primary me-3"></i>
+                <h3 class="mb-0 text-primary">Coleta de Dados</h3>
+            </div>
+            <p class="text-secondary">
+                Nossa plataforma coeta apenas informações essenciais para o funcionamento adequado dos serviços
+                médicos, garantindo sempre a mínima quantidade de dados necessária.
+            </p>
+        </div>
+
+        <div class="mb-5">
+            <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-lock fa-2x text-primary me-3"></i>
+                <h3 class="mb-0 text-primary">Proteção de Informações</h3>
+            </div>
+            <p class="text-secondary">
+                Utilizamos tecnologia de criptografia de ponta a ponta e seguimos os mais rigorosos protocolos
+                de segurança para proteger seus dados contra acesso não autorizado.
+            </p>
+        </div>
+
+        <div class="mb-5">
+            <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-user-shield fa-2x text-primary me-3"></i>
+                <h3 class="mb-0 text-primary">Direitos do Usuário</h3>
+            </div>
+            <p class="text-secondary">
+                Você tem direito a acessar, corrigir ou solicitar a exclusão de seus dados pessoais a qualquer
+                momento através de nosso canal dedicado.
+            </p>
+        </div>
+
+        <div class="alert alert-primary-gradient text-dark border-0 shadow-sm">
+            <h4 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Transparência</h4>
+            <p class="mb-0">
+                Qualquer alteração em nossa política de privacidade será comunicada com antecedência
+                através de nossos canais oficiais.
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero-privacy {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        border-radius: 15px;
+    }
+
+    .privacy-content {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .privacy-content h3 {
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 0.5rem;
+        display: inline-block;
+    }
+
+    .alert-primary-gradient {
+        background: linear-gradient(15deg, var(--primary-color) 0%, var(--secondary-color) 150%);
+        color: white !important;
+        border-radius: 10px;
+    }
+
+    .alert-primary-gradient h4 {
+        color: var(--accent-color);
+        font-weight: 700;
+    }
+
+    .text-secondary {
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+</style>

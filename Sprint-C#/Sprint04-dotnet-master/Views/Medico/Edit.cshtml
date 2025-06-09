@@ -1,0 +1,143 @@
+﻿@model Sessions_app.Models.Medico
+
+@{
+    ViewData["Title"] = "Editar Médico";
+}
+
+<div class="container py-5">
+    <!-- Header Section -->
+    <div class="hero-edit text-center mb-5">
+        <div class="bg-primary-gradient rounded-3 p-4 shadow">
+            <h1 class="display-5 fw-bold text-white mb-3">
+                <i class="fas fa-user-edit me-3"></i>@ViewData["Title"]
+            </h1>
+            <p class="lead text-light">Atualização de dados cadastrais</p>
+        </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4 p-lg-5">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="alert alert-warning"></div>
+                <input type="hidden" asp-for="IdMedico" />
+
+                <div class="row g-4">
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input asp-for="Nome" class="form-control" placeholder="Nome completo" />
+                            <label asp-for="Nome" class="form-label">
+                                <i class="fas fa-user me-2"></i>Nome completo
+                            </label>
+                            <span asp-validation-for="Nome" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input asp-for="CRM" class="form-control" placeholder="CRM" />
+                            <label asp-for="CRM" class="form-label">
+                                <i class="fas fa-id-badge me-2"></i>CRM
+                            </label>
+                            <span asp-validation-for="CRM" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input asp-for="Telefone" class="form-control" placeholder="Telefone" />
+                            <label asp-for="Telefone" class="form-label">
+                                <i class="fas fa-phone me-2"></i>Telefone
+                            </label>
+                            <span asp-validation-for="Telefone" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input asp-for="Email" class="form-control" placeholder="E-mail" />
+                            <label asp-for="Email" class="form-label">
+                                <i class="fas fa-envelope me-2"></i>E-mail
+                            </label>
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-4">
+                        <div class="d-flex gap-3 justify-content-end">
+                            <button type="submit" class="btn btn-primary-gradient px-4 py-2">
+                                <i class="fas fa-save me-2"></i>Salvar Alterações
+                            </button>
+                            <a asp-action="Index" class="btn btn-link text-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Voltar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .hero-edit {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    }
+
+    .form-control {
+        border: 2px solid #e9ecef;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.1);
+        }
+
+    .form-label {
+        display: flex;
+        align-items: center;
+        color: #6c757d;
+        font-weight: 500;
+    }
+
+    .btn-primary-gradient {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(42, 157, 143, 0.3);
+        }
+
+    .alert-warning {
+        background: rgba(255, 193, 7, 0.15);
+        border: 1px solid rgba(255, 193, 7, 0.3);
+        border-radius: 8px;
+    }
+
+    .text-danger {
+        color: #dc3545 !important;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+        .text-danger::before {
+            content: "\f06a";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+        }
+</style>

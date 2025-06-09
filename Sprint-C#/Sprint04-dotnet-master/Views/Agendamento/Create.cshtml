@@ -1,0 +1,74 @@
+﻿@model Sessions_app.Models.Agendamento;
+
+@{
+    ViewData["Title"] = "Novo Agendamento";
+}
+
+<div class="container py-5">
+    <div class="hero-index bg-white rounded-3 shadow-sm p-4 mb-5">
+        <h1 class="display-5 fw-bold text-dark">
+            <i class="fas fa-calendar-plus me-3 text-primary"></i>@ViewData["Title"]
+        </h1>
+    </div>
+
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select asp-for="PacienteId" class="form-control"
+                                    asp-items="ViewBag.PacienteId"></select>
+                            <label asp-for="PacienteId"></label>
+                            <span asp-validation-for="PacienteId" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select asp-for="MedicoId" class="form-control"
+                                    asp-items="ViewBag.MedicoId"></select>
+                            <label asp-for="MedicoId"></label>
+                            <span asp-validation-for="MedicoId" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input asp-for="DataAgendamento" class="form-control"
+                                   type="datetime-local" />
+                            <label asp-for="DataAgendamento"></label>
+                            <span asp-validation-for="DataAgendamento" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <textarea asp-for="Descricao" class="form-control"
+                                      style="height: 100px"></textarea>
+                            <label asp-for="Descricao"></label>
+                            <span asp-validation-for="Descricao" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary-gradient">
+                            <i class="fas fa-save me-2"></i>Salvar
+                        </button>
+                        <a asp-action="Index" class="btn btn-link text-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Voltar
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

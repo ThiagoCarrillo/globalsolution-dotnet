@@ -1,0 +1,128 @@
+﻿@model Sessions_app.Models.Paciente
+
+@{
+    ViewData["Title"] = "Excluir Paciente";
+}
+
+<div class="container py-5">
+    <!-- Header Section -->
+    <div class="hero-delete text-center mb-5">
+        <div class="bg-danger-gradient rounded-3 p-4 shadow">
+            <h1 class="display-5 fw-bold text-white mb-3">
+                <i class="fas fa-user-times me-3"></i>@ViewData["Title"]
+            </h1>
+            <p class="lead text-light">Confirmação de exclusão permanente</p>
+        </div>
+    </div>
+
+    <!-- Alert Section -->
+    <div class="alert alert-danger-gradient rounded-3 shadow-sm mb-5" role="alert">
+        <div class="d-flex align-items-center">
+            <i class="fas fa-exclamation-triangle fa-2x me-3"></i>
+            <div>
+                <h3 class="alert-heading mb-2">Atenção! Esta ação é irreversível</h3>
+                <p class="mb-0">Todos os registros e histórico médico associados serão permanentemente removidos.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Details Card -->
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary-gradient text-white py-3">
+            <h4 class="mb-0">
+                <i class="fas fa-user-injured me-2"></i>@Model.Nome
+            </h4>
+        </div>
+        <div class="card-body p-4">
+            <dl class="row g-3">
+                <div class="col-md-6">
+                    <dt class="text-primary">
+                        <i class="fas fa-id-card me-2"></i>Nome Completo
+                    </dt>
+                    <dd class="text-secondary mb-3">@Model.Nome</dd>
+                </div>
+
+                <div class="col-md-6">
+                    <dt class="text-primary">
+                        <i class="fas fa-phone me-2"></i>Telefone
+                    </dt>
+                    <dd class="text-secondary mb-3">@Model.Telefone</dd>
+                </div>
+
+                <div class="col-md-6">
+                    <dt class="text-primary">
+                        <i class="fas fa-envelope me-2"></i>E-mail
+                    </dt>
+                    <dd class="text-secondary mb-3">@Model.Email</dd>
+                </div>
+
+                <div class="col-md-6">
+                    <dt class="text-primary">
+                        <i class="fas fa-birthday-cake me-2"></i>Data de Nascimento
+                    </dt>
+                    <dd class="text-secondary mb-3">
+                        @(Model.DataNascimento.HasValue ? Model.DataNascimento.Value.ToString("dd/MM/yyyy") : "Não informado")
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        <div class="card-footer bg-light py-3">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="IdPaciente" />
+                <div class="d-flex gap-3 justify-content-end">
+                    <button type="submit" class="btn btn-danger-gradient px-4 py-2">
+                        <i class="fas fa-trash-alt me-2"></i>Confirmar Exclusão
+                    </button>
+                    <a asp-action="Index" class="btn btn-link text-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Voltar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero-delete {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    }
+
+    .alert-danger-gradient {
+        background: linear-gradient(15deg, #dc3545 0%, #c82333 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .btn-danger-gradient {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-danger-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+    }
+
+    .card-header {
+        border-radius: 8px 8px 0 0 !important;
+    }
+
+    dt {
+        font-weight: 600;
+        padding-bottom: 0.3rem;
+        border-bottom: 2px solid var(--accent-color);
+    }
+
+    dd {
+        padding-left: 1.5rem;
+        font-size: 1.05rem;
+        color: #6c757d;
+    }
+
+    .text-secondary {
+        font-weight: 500;
+    }
+</style>

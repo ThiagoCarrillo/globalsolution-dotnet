@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Paciente Não Encontrado";
+}
+
+<div class="container mt-5 text-center">
+    <h2 class="text-danger">Paciente Não Encontrado</h2>
+    <p>Não foi possível encontrar um paciente com o ID <strong>@ViewData["PacienteId"]</strong>.</p>
+    <p>Verifique o ID informado e tente novamente.</p>
+
+    <a asp-controller="Paciente" asp-action="Index" class="btn btn-primary mt-3">
+        <i class="fas fa-home"></i> Voltar para Lista de Pacientes
+    </a>
+</div>
+
+@section Scripts {
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+}

@@ -1,0 +1,123 @@
+﻿@model Sessions_app.Models.Paciente
+
+@{
+    ViewData["Title"] = "Detalhes do Paciente";
+}
+
+<div class="container py-5">
+    <!-- Header Section -->
+    <div class="hero-details text-center mb-5">
+        <div class="bg-primary-gradient rounded-3 p-4 shadow">
+            <h1 class="display-5 fw-bold text-white mb-3">
+                <i class="fas fa-user-injured me-3"></i>@ViewData["Title"]
+            </h1>
+            <p class="lead text-light">Informações completas do paciente</p>
+        </div>
+    </div>
+
+    <!-- Details Card -->
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary-gradient text-white py-3">
+            <h4 class="mb-0">
+                <i class="fas fa-id-card me-2"></i>@Model.Nome
+            </h4>
+        </div>
+        <div class="card-body p-4">
+            <dl class="row g-4">
+                <div class="col-md-6">
+                    <dt class="text-primary">
+                        <i class="fas fa-fingerprint me-2"></i>ID
+                    </dt>
+                    <dd class="text-secondary mb-3">@Model.IdPaciente</dd>
+                </div>
+
+                <div class="col-md-6">
+                    <dt class="text-primary">
+                        <i class="fas fa-user me-2"></i>Nome Completo
+                    </dt>
+                    <dd class="text-secondary mb-3">@Model.Nome</dd>
+                </div>
+
+                <div class="col-md-6">
+                    <dt class="text-primary">
+                        <i class="fas fa-phone me-2"></i>Telefone
+                    </dt>
+                    <dd class="text-secondary mb-3">@Model.Telefone</dd>
+                </div>
+
+                <div class="col-md-6">
+                    <dt class="text-primary">
+                        <i class="fas fa-envelope me-2"></i>E-mail
+                    </dt>
+                    <dd class="text-secondary mb-3">@Model.Email</dd>
+                </div>
+
+                <div class="col-md-12">
+                    <dt class="text-primary">
+                        <i class="fas fa-birthday-cake me-2"></i>Data de Nascimento
+                    </dt>
+                    <dd class="text-secondary mb-3">
+                        @(Model.DataNascimento.HasValue ? Model.DataNascimento.Value.ToString("dd/MM/yyyy") : "Não informada")
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        <div class="card-footer bg-light py-3">
+            <div class="d-flex gap-3 justify-content-end">
+                <a asp-action="Edit" asp-route-id="@Model.IdPaciente" class="btn btn-warning-gradient px-4 py-2">
+                    <i class="fas fa-edit me-2"></i>Editar
+                </a>
+                <a asp-action="Index" class="btn btn-link text-secondary">
+                    <i class="fas fa-arrow-left me-2"></i>Voltar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero-details {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    }
+
+    .card-header {
+        border-radius: 8px 8px 0 0 !important;
+    }
+
+    dt {
+        font-weight: 600;
+        padding-bottom: 0.3rem;
+        border-bottom: 2px solid var(--accent-color);
+        margin-bottom: 1rem;
+    }
+
+    dd {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-warning-gradient {
+        background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+        color: var(--secondary-color);
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-warning-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+    }
+
+    .text-secondary {
+        font-size: 1.05rem;
+        color: #6c757d !important;
+    }
+
+    .card {
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+</style>

@@ -1,0 +1,145 @@
+﻿@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<div class="container-xxl">
+    <!-- Hero Section -->
+    <div class="hero-section text-center py-5 mb-5 bg-primary-gradient rounded-3 shadow">
+        <div class="container py-5">
+            <h1 class="display-4 fw-bold text-white mb-4">
+                <i class="fas fa-tooth me-3"></i>Bem-vindo ao OdontoSystem
+            </h1>
+            <p class="lead text-light mb-5">Gestão inteligente para clínicas odontológicas</p>
+
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a asp-controller="Paciente" asp-action="CuidadosDentais" class="btn btn-lg btn-accent">
+                    <i class="fas fa-teeth-open me-2"></i>Cuidados Dentais
+                </a>
+                <a asp-controller="Agendamento" asp-action="Create" class="btn btn-lg btn-light">
+                    <i class="fas fa-calendar-check me-2"></i>Novo Agendamento
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="row g-4">
+        <!-- Card de Pacientes -->
+        <div class="col-lg-4">
+            <div class="card h-100 hover-scale">
+                <div class="card-header bg-primary-gradient text-white py-4">
+                    <h3 class="mb-0">
+                        <i class="fas fa-user-injured me-2"></i>Pacientes
+                    </h3>
+                </div>
+                <div class="card-body py-4">
+                    <p class="card-text text-secondary mb-4">
+                        Gerencie prontuários completos, histórico médico e tratamentos dos pacientes.
+                    </p>
+                    <div class="d-grid">
+                        <a asp-controller="Paciente" asp-action="Index" class="btn btn-primary">
+                            <i class="fas fa-list me-2"></i>Gerenciar Pacientes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card de Agendamentos -->
+        <div class="col-lg-4">
+            <div class="card h-100 hover-scale">
+                <div class="card-header bg-primary-gradient text-white py-4">
+                    <h3 class="mb-0">
+                        <i class="fas fa-calendar-alt me-2"></i>Agendamentos
+                    </h3>
+                </div>
+                <div class="card-body py-4">
+                    <p class="card-text text-secondary mb-4">
+                        Agende consultas e acompanhe todos os compromissos da clínica.
+                    </p>
+                    <div class="d-grid">
+                        <a asp-controller="Agendamento" asp-action="Index" class="btn btn-primary">
+                            <i class="fas fa-list me-2"></i>Ver Agendamentos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card de Médicos -->
+        <div class="col-lg-4">
+            <div class="card h-100 hover-scale">
+                <div class="card-header bg-primary-gradient text-white py-4">
+                    <h3 class="mb-0">
+                        <i class="fas fa-user-md me-2"></i>Médicos
+                    </h3>
+                </div>
+                <div class="card-body py-4">
+                    <p class="card-text text-secondary mb-4">
+                        Administre o cadastro de profissionais e suas especialidades.
+                    </p>
+                    <div class="d-grid">
+                        <a asp-controller="Medico" asp-action="Index" class="btn btn-primary">
+                            <i class="fas fa-stethoscope me-2"></i>Gerenciar Médicos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    }
+
+    .btn-accent {
+        background-color: var(--accent-color);
+        color: var(--secondary-color);
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(233, 196, 106, 0.3);
+        }
+
+    .hover-scale {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .hover-scale:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+    .btn-light {
+        background-color: rgba(255,255,255,0.9);
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        transition: all 0.3s ease;
+    }
+
+        .btn-light:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    .icon-box {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .stat-card {
+        transition: transform 0.3s ease;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
